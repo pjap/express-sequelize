@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <%- include layout/head %>
+  <body>
+    <h1>Halaman Students</h1>
+    <a href = "/">Back To Home</a>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>FULL NAME</th>
+          <th>EMAIL</th>
+          <th>CREATED AT</th>
+          <th>UPDATED AT</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%data.forEach( row => { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.first_name%> <%= row.last_name %></td>
+          <td><%= row.email %></td>
+          <td><%= row.createdAt %></td>
+          <td><%= row.updatedAt %></td>
+          <td>
+            <a href="/students/edit/<%=row.id%>"><button class="button">Edit</button></a>
+            <a href="/students/delete/<%=row.id%>"><button class="button">Hapus</button></a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <div style="padding-left:56.4%;padding-top:10px;">
+      <a href="/students/addStudents/%>"><button class="button2">Add Students</button></a>
+      <a href = "/teachers" style="color:black"><button class="button2">Back To Teacher</button></a>
+      <a href = "/subjects" style="color:black"><button class="button2">Back To Subjects</button></a>
+      <a href = "/" style="color:black"><button class="button2">Back To Home</button></a>
+    </div>
+  </body>
+</html>

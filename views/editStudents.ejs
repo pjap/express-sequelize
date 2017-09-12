@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <%- include layout/head %>
+  <body>
+    <h1>Halaman Edit Students</h1>
+
+    <form class="" style="margin-top:10px;" action="/students/edit/<%= data.id %>" method="POST">
+      <input type="text" name="first_name" value= "<%= data.first_name%>" placeholder="Masukan Nama Depan">
+      <input type="text" name="last_name" value="<%= data.last_name%>" placeholder="Masukan Belakang">
+      <input type="text" name="email" value="<%= data.email%>" placeholder="Masukan Email">
+      <input type="submit" value="SUBMIT">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <%- include layout/head %>
+  <body>
+    <h1>Halaman Subject</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>SUBJECT NAME</th>
+          <th>TEACHER</th>
+          <th>CREATED AT</th>
+          <th>UPDATED AT</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%data.forEach( row => { %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= row.subject_name %></td>
+          <td class="ratakiri">
+            <% if(row.Teachers.length > 0) { %>
+              <% row.Teachers.forEach((teacher) => { %>
+                <%= (' * ') + '  ' + teacher.first_name + ' ' + teacher.last_name%>
+              </br>
+              <% }) %>
+              <% } else { %>
+                x
+              <% } %>
+          </td>
+          <td><%= row.createdAt %></td>
+          <td><%= row.updatedAt %></td>
+          <td>
+            <a href="/subjects/edit/<%= row.id %>"><button class="button2">Edit</button></a>
+            <a href="/subjects/delete/<%= row.id %>"><button class="button2">Hapus</button></a>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <div style="padding-left:55.9%;padding-top:10px;">
+      <a href="/subjects/addSubjects/%>"><button class="button2">Add Subjects</button></a>
+      <a href = "/students" style="color:black"><button class="button2">Back To Students</button></a>
+      <a href = "/teachers" style="color:black"><button class="button2">Back To Teachers</button></a>
+      <a href = "/" style="color:black"><button class="button2">Back To Home</button></a>
+    </div>
+
+  </body>
+</html>

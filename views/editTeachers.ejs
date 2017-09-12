@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <%- include layout/head %>
+  <body>
+    <h1>Halaman Edit Teachers</h1>
+
+    <form class="" style="margin-top:10px;" action="/teachers/edit/<%= data.id %>" method="POST">
+      <input type="text" name="first_name" value= "<%= data.first_name%>" placeholder="Masukan Nama Depan">
+      <input type="text" name="last_name" value="<%= data.last_name%>" placeholder="Masukan Belakang">
+      <input type="text" name="email" value="<%= data.email%>" placeholder="Masukan Email">
+      <select class="" name="subjectsId">
+        <% data2.forEach(subjects => { %>
+        <option value="<%= subjects.id%>"><%= subjects.subject_name %></option>
+      <% }) %>
+      </select>
+      <input type="submit" value="SUBMIT">
+    </form>
+  </body>
+</html>
